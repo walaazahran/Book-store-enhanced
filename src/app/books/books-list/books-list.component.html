@@ -1,0 +1,9 @@
+<!--Book's List-->
+<div class="container">
+  <div class="row my-5 mr-0 text-center">
+    <h1 class="text-center">{{ listName }}</h1>
+    <div class="col-sm-3" *ngFor="let book of books">
+      <app-books-list-item [book]="book"></app-books-list-item>
+    </div>
+  </div>
+</div>

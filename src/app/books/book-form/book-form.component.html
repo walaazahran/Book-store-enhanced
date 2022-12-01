@@ -1,0 +1,54 @@
+<div class="row my-5">
+  <div class="col-sm-10 mx-auto">
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
+      <div>
+        <div class="cross-validation" [class.cross-validation-error]="(bookForm.touched || bookForm.dirty)&&bookForm.invalid">
+          <h2 class="text-center bg-info text-light p-3">Add Your List</h2>
+
+          <div class="form-group">
+            <label for="listTitle" class="form-label">List's Title: <span >*</span>
+            </label>
+            <input id="listTitle" class="form-control" name="listTitle" type="text" placeholder="Name of the list" formControlName="listTitle"/>
+
+          </div>
+          <div class="form-group">
+            <div formGroupName="book">
+              <label for="rankOfBook" class="form-label">Order: <span >*</span>
+              </label>
+              <input id="rankOfBook" class="form-control" type="number" name="rankOfBook"  placeholder="Order of Book in the list" formControlName="rankOfBook" required/>
+
+              <label for="bookTitle" class="form-label">Book's title: <span >*</span>
+              </label>
+              <input id="bookTitle" class="form-control" type="text" name="bookTitle"  placeholder="Title of Book" formControlName="bookTitle" required/>
+
+              <label for="yearOfPublishing" class="form-label">Publishing Year: <span >*</span>
+              </label>
+              <input id="yearOfPublishing" class="form-control" type="number"  name="yearOfPublishing" placeholder="Publish year" formControlName="yearOfPublishing" required/>
+
+              <label for="authorName" class="form-label">Author Name: <span >*</span>
+              </label>
+              <input id="authorName" type="text" name="authorName" class="form-control"  formControlName="authorName" placeholder="Author's name" required/>
+
+              <label for="coverImage" class="form-label">Cover's Link:
+              </label>
+              <input id="coverImage" class="form-control" type="url" name="coverImage" formControlName="coverImage" placeholder="please insert the link of cover image (Optional)" />
+            </div>
+          </div>
+
+
+
+
+          <p class="text-white badge bg-danger" [hidden]="bookForm.valid">{{formBadge}}</p>
+          <br/>
+          <button type="submit" class="btn btn-primary" [disabled]="bookForm.invalid">
+            Submit
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="bookForm.reset()">Reset
+          </button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
