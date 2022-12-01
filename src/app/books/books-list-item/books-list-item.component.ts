@@ -1,3 +1,4 @@
+import { Books } from './../books.model';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BooksListItemComponent implements OnInit{
 
-  @Input() book!:any;
+  @Input() book:Books=new Books();
   ngOnInit(){
     console.log(typeof(this.book))
     }
